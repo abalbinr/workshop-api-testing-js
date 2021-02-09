@@ -1,0 +1,28 @@
+{
+  "name": "workshop-api-testing",
+  "version": "1.0.0",
+  "description": "This is a Workshop about Api Testing in JavaScript",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/abalbinr/workshop-api-testing-js.git"
+  },
+  "keywords": [
+    "api-testing",
+    "dojo",
+    "practice"
+  ],
+  "author": "Augusto Balbin <abalbinr\u001b[1;3r\u001b@\u001b@@\u001b[D\u001b\u001b\u001b\u001b[C\u001b[B\u001b[B\u001b[B\u001b[B\u001b[B\u001b[B\u001b[B\u001b[B\u001b[B\u001b[B\u001b[B\u001b[B\u001b[B\u001b[B\u001b[B\u001b[B\u001b[B\u001b[B\u001b[B\u001b[B\u001b[B\u001b[B\u001b[B\u001b[B\u001b[B\u001b[B\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[r@unal.edu.co> (abalbinr)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/abalbinr/workshop-api-testing-js/issues"
+  },
+  "homepage": "https://github.com/abalbinr/workshop-api-testing-js#readme",
+  "devDependencies": {
+    "chai": "^4.3.0",
+    "mocha": "^8.2.1"
+  }
+}
