@@ -7,7 +7,7 @@ let usuario;
 describe('Consumiendo métodos POST y PATCH', () => {
   it('Verificar si este usuario tiene repositorios publicos', async () => {
     const response = await agent.get(`${urlBase}`) // https://docs.github.com/rest/reference/users#check-if-a-person-is-followed-by-the-authenticated-user
-      .auth('token', 'dcef4d17bb0d1746f91a9d355da1936b06f56cc7')
+      .auth('token', process.env.ACCESS_TOKEN)
       .set('User-Agent', 'agent');
 
     const repoPublico = response.body.public_repos > 0;
@@ -17,7 +17,7 @@ describe('Consumiendo métodos POST y PATCH', () => {
 
   it('Verificar que un repo exista en la lista de todos los repositorios de este usuario', async () => {
     const response = await agent.get(`${usuario.repos_url}`)
-      .auth('token', 'dcef4d17bb0d1746f91a9d355da1936b06f56cc7')
+      .auth('token', process.env.ACCESS_TOKEN)
       .set('User-Agent', 'agent');
 
     const repoID = response.body[0].id;
@@ -29,7 +29,7 @@ describe('Consumiendo métodos POST y PATCH', () => {
   it('Crear un nuevo issue en un repositorio', async () => {
     const issueNuevo = { title: 'SuperIssue', description: 'Un gran problema fue creado' };
     const response = await agent.post('https://api.github.com/repos/abalbinr/Kaggle/issues', issueNuevo)
-      .auth('token', 'dcef4d17bb0d1746f91a9d355da1936b06f56cc7')
+      .auth('token', process.env.ACCESS_TOKEN)
       .set('User-Agent', 'agent');
 
     expect(response.body.title).to.equal('SuperIssue');
@@ -39,7 +39,7 @@ describe('Consumiendo métodos POST y PATCH', () => {
   it('Modificar el issue en un repositorio', async () => {
     const issueModificado = { body: 'modificacion' };
     const response = await agent.patch('https://api.github.com/repos/abalbinr/Kaggle/issues/8', issueModificado)
-      .auth('token', 'dcef4d17bb0d1746f91a9d355da1936b06f56cc7')
+      .auth('token', process.env.ACCESS_TOKEN)
       .set('User-Agent', 'agent');
 
     expect(response.body.title).to.equal('SuperIssue');
