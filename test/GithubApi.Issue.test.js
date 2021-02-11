@@ -15,7 +15,7 @@ describe('Consumiendo métodos POST y PATCH', () => {
     usuario = response.body;
   });
 
-  it('la lista de todos los repositorios de este usuario', async () => {
+  it('Verificar que un repo exista en la lista de todos los repositorios de este usuario', async () => {
     const response = await agent.get(`${usuario.repos_url}`)
       .auth('token', 'dcef4d17bb0d1746f91a9d355da1936b06f56cc7')
       .set('User-Agent', 'agent');
@@ -24,5 +24,15 @@ describe('Consumiendo métodos POST y PATCH', () => {
 
     const repositorio = response.body.find((repos) => repos.name === 'Kaggle');
     expect(repositorio.id).to.equal(repoID);
+  });
+
+  it('Crear un nuevo issue en un repositorio', async () => {
+    const issueNuevo = { title: 'SuperIssue', description: 'Un gran problema fue creado' };
+    const response = await agent.post('https://api.github.com/repos/abalbinr/Kaggle/issues', issueNuevo)
+      .auth('token', 'dcef4d17bb0d1746f91a9d355da1936b06f56cc7')
+      .set('User-Agent', 'agent');
+
+    expect(response.body.title).to.equal('SuperIssue');
+    expect(response.body.body).to.equal(null);
   });
 });
