@@ -35,4 +35,14 @@ describe('Consumiendo métodos POST y PATCH', () => {
     expect(response.body.title).to.equal('SuperIssue');
     expect(response.body.body).to.equal(null);
   });
+
+  it('Modificar el issue en un repositorio', async () => {
+    const issueModificado = { body: 'modificacion' };
+    const response = await agent.patch('https://api.github.com/repos/abalbinr/Kaggle/issues/8', issueModificado)
+      .auth('token', 'dcef4d17bb0d1746f91a9d355da1936b06f56cc7')
+      .set('User-Agent', 'agent');
+
+    expect(response.body.title).to.equal('SuperIssue');
+    expect(response.body.body).to.equal('modificacion');
+  });
 });
